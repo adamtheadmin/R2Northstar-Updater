@@ -1,4 +1,4 @@
-import findTitalfallLocation from  './tools/findTitanfallLocation';
+import findTitanfallLocation from "./tools/findTitanfallLocation";
 import getReleases from './tools/getReleases';
 import versionManager from "./tools/versionManager";
 import R2Updater from "./tools/R2Updater";
@@ -7,7 +7,7 @@ import launch from "./tools/launch";
 (async () => {
     let location:string;
     try {
-        location = await findTitalfallLocation();
+        location = await findTitanfallLocation();
     } catch(e) {
         console.log(`Titanfall 2 could not be found on your PC.`);
         process.exit(1);
