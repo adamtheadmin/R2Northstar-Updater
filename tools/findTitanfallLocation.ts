@@ -7,8 +7,6 @@ const locations: string[] = [
 ];
 
 export default async function findTitanfallLocation():Promise<string> {
-    return "/Users/adam/Desktop/test";
-    return "/Users/adam/Library/Application Support/CrossOver/Bottles/Origin/drive_c/Program Files (x86)/Origin Games/Titanfall2";
     for (const location of locations) {
         try {
             await fsPromises.access(location);
