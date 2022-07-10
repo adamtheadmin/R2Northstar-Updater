@@ -23,6 +23,7 @@ describe('R2 Updater Test', function () {
         await fsPromises.access(__dirname + '/install/file.txt');
         await fsPromises.access(__dirname + '/install/dir');
         await fsPromises.unlink(__dirname + '/install/file.txt');
+        await fsPromises.unlink(__dirname + '/install/dir/file.txt');
         await fsPromises.rmdir(__dirname + '/install/dir');
     });
 });
