@@ -21,6 +21,7 @@ jobs:
       - name: Install
         run: |
           npm install
+          npm i -g typescript ts-node
 
       - name: Type Checking
         run: |
