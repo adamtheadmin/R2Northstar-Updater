@@ -9,6 +9,5 @@ describe('Get Releases', function () {
         const releases = await getReleases();
         sinon.assert.calledOnce(axiosStub);
         assert(releases[0].url === 'http://localhost');
-        sinon.restore();
     });
 });

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register test/*.test.ts",
-    "buildexe": "tsc --noEmit false && pkg dist/index.js --targets win && mv index.exe launcher.exe"
+    "test": "mocha --require ts-node/register --require test/hooks.ts test/*.test.ts",
+    "buildexe": "tsc --noEmit false && pkg dist/index.js --targets win && mv index.exe launcher.exe && echo 'launcher.exe created'"
   },
   "author": "Adam Fowler",
   "license": "MIT",

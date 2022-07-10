@@ -12,7 +12,6 @@ describe('Version Manager Test', function () {
         sinon.assert.calledOnce(accessStub);
         sinon.assert.calledOnce(readFileStub);
         assert(version === 27);
-        sinon.restore();
     });
 
     it('Can set version', async function () {
@@ -22,6 +21,5 @@ describe('Version Manager Test', function () {
         sinon.assert.calledOnce(writeStub);
         assert(writeStub.getCall(0).args[0] === `${__dirname}/VERSION`);
         assert(writeStub.getCall(0).args[1] === '50');
-        sinon.restore();
     });
 });

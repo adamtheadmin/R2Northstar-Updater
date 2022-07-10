@@ -12,6 +12,5 @@ describe('Launch', function () {
         launch('/somePrefix');
         sinon.assert.calledOnce(execStub);
         assert(execStub.getCall(0).args[0] === path.resolve('/somePrefix', 'NorthstarLauncher.exe'));
-        sinon.restore();
     });
 });

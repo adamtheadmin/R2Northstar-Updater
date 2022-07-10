@@ -20,6 +20,5 @@ describe('Find Titanfall Location', function () {
             didThrow = true;
         }
         assert(didThrow);
-        sinon.restore();
     });
 });

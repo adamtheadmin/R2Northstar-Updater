@@ -12,7 +12,6 @@ describe('Discord Patch', function () {
         const unlinkStub = sinon.stub(fsPromises, 'unlink');
         await DiscordFixPatch('somepath');
         sinon.assert.notCalled(unlinkStub);
-        sinon.restore();
     });
 
     it('Will run when discord is not installed', async function () {
@@ -21,6 +20,5 @@ describe('Discord Patch', function () {
         const unlinkStub = sinon.stub(fsPromises, 'unlink');
         await DiscordFixPatch('somepath');
         sinon.assert.calledOnce(unlinkStub);
-        sinon.restore();
     });
 });
