@@ -1,7 +1,6 @@
 import unzip from 'unzip-stream';
 import {Release} from '../contracts/github/releases';
 import axios from 'axios';
-import request from 'request';
 import path from 'path';
 import { promises as fsPromises, createWriteStream } from 'fs';
 import DiscordFixPatch from "./DiscordFixPatch";
@@ -12,7 +11,7 @@ export default async function R2Updater(location: string, release: Release):Prom
             console.log("Installing latest version of R2...");
             const {data} = await axios.get(release.assets[0].url);
             const zipLocation = data.browser_download_url;
-            request.get(zipLocation).pipe(unzip.Parse())
+            (await axios.get(zipLocation, {responseType: 'stream'})).data.pipe(unzip.Parse())
                 .on('entry', async function (file) {
                     const mkPath = path.resolve(location, file.path);
                     switch (file.type) {
