@@ -3,6 +3,7 @@ import getReleases from './tools/getReleases';
 import versionManager from "./tools/versionManager";
 import R2Updater from "./tools/R2Updater";
 import launch from "./tools/launch";
+import EAChecker from './tools/EAChecker';
 
 (async () => {
     let location:string;
@@ -19,11 +20,12 @@ import launch from "./tools/launch";
     const VM = versionManager(location);
     const currentVersion:number = await VM.get();
     if (currentVersion === latestVersion) {
-       await launch(location);
-    }
-    if (!currentVersion || currentVersion < latestVersion) {
-        await R2Updater(location, latest);
-        await VM.set(latestVersion);
+        await EAChecker();
         await launch(location);
+        return;
     }
+    await R2Updater(location, latest);
+    await VM.set(latestVersion);
+    await EAChecker();
+    await launch(location);
 })()
