@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register --require test/hooks.ts test/*.test.ts",
-    "buildexe": "export NODE_ENV=production && npm ci && tsc -p tsconfig.prod.json && pkg dist/index.js --targets win && mv index.exe launcher.exe && echo 'launcher.exe created!' && export NODE_ENV=development && npm i"
+    "buildexe": "export NODE_ENV=production && npm ci && tsc -p tsconfig.prod.json && npx pkg dist/index.js --targets win && mv index.exe launcher.exe && echo 'launcher.exe created!' && export NODE_ENV=development && npm i"
   },
   "author": "Adam Fowler",
   "license": "MIT",
